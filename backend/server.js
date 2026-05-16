@@ -14,12 +14,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "*",
+    origin: [process.env.CLIENT_URL || "*", "https://task-zeta-rosy.vercel.app/"],
     credentials: true,
   })
 );
 app.use(express.json());
-
+  
 app.get("/", (req, res) => res.json({ message: "Task Manager API running" }));
 
 app.use("/api/auth", authRoutes);
